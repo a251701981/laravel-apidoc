@@ -15,6 +15,7 @@ class CreatapiDocsrsTable extends Migration
     {
         Schema::create('api_docs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');     //接口名称
             $table->string('descript'); //接口描述
             $table->string('path');     //路径
             $table->string('method');   //请求方法
