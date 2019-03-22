@@ -18,7 +18,8 @@ Route::get('/', function () {
 
 
 Route::get('/a',function(){
-    return view('test');
+
+    var_dump(app('other_service')->myfiter('aaa'));
 });
 
 
