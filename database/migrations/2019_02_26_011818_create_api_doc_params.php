@@ -14,7 +14,7 @@ class CreateApiDocParams extends Migration
     public function up()
     {
         Schema::create('api_docs_params', function (Blueprint $table) {
-            $table->integer('api_doc_id');  //接口id
+            $table->integer('api_docs_id');  //接口id
             $table->string('name');     //参数名称
             $table->string('type');     //参数类型
             $table->text('example');    //参数示例
