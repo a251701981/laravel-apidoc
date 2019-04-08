@@ -6,7 +6,7 @@
     <title>@yield('title','请 设置标题')</title>
 
     <link rel="stylesheet" href="{{$ROOT_PATH}}layui/css/layui.css">
-    @yield('ext-style');
+    @yield('ext-style')
 </head>
 <body>
 
