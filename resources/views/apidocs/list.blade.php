@@ -114,7 +114,7 @@
             layui.code();
 
             $('a.del').on('click',function(){
-                layer.confirm('确定?',{icon: 3, title:'提示'},function(){
+                layer.confirm('确定?',{icon: 3, title:'提示'},()=>{
 
                     $.post('/apidocs/'+$(this).attr('data-val'),{ _method:'delete',_token:'{{csrf_token()}}' },function(){
                         window.location.href='/apidocs';

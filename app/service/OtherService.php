@@ -16,7 +16,7 @@ class OtherService
     public function myfiter($str)
     {
         $str = addslashes($str);
-        $str = str_replace(["\r","\n"],["\\r","\\n"],$str);
+        $str = str_replace(["\r","\n"],["","\\n"],$str);
         return strip_tags($str);
     }
 
