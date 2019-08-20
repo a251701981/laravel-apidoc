@@ -10,6 +10,8 @@ class ApiDoc extends Model
     //
 
     protected $guarded = ['_token','_method'];
+	
+	protected $connection = 'sqlite';
 
 
 

@@ -8,6 +8,8 @@ class ApiDocsParam extends Model
 {
     //
     protected $guarded = ['_token','_method'];
+	
+	protected $connection = 'sqlite';
 
 
 
