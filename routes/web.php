@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/a',function(){
 
-    var_dump(app('other_service')->myfiter('aaa'));
+    return config('test.test');
 });
 
 
