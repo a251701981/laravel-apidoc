@@ -168,37 +168,42 @@
 
 
 
-        var data = JSON.parse(`{!! $doc !!}`);
-        data._method = 'put';
-        data._token = '{{csrf_token()}}';
+         //一般直接写在一个js文件中
+            layui.use(['layer', 'form','code'], function(){
+                var layer = layui.layer,form = layui.form,$ = layui.jquery;
 
-        var vm = new Vue({
-            el:"#item-create",
-            data:function(){
-                return data;
-            },
-            methods:{
-                addItem:function(){
-                    this.params.push({name:'',type:'',example:'',descript:''});
-                },
-                removeItem:function(index){
-                    this.params.splice(index,1);
-                }
-            }
-        });
 
-        //一般直接写在一个js文件中
-        layui.use(['layer', 'form','code'], function(){
-            var layer = layui.layer,form = layui.form,$ = layui.jquery;
-            form.on('submit',function(form){
-                $.post("/apidocs/"+data.id,vm.$data,function(response){
-                    layer.msg('修改成功');
-                    window.location.href = "/apidocs";
+                $.get(window.location.href,function(data){
+
+                    data._method = 'put';
+                    data._token = '{{csrf_token()}}';
+                    var vm = new Vue({
+                        el:"#item-create",
+                        data:function(){
+                            return data;
+                        },
+                        methods:{
+                            addItem:function(){
+                                this.params.push({name:'',type:'',example:'',descript:''});
+                            },
+                            removeItem:function(index){
+                                this.params.splice(index,1);
+                            }
+                        }
+                    });
+
+                    form.on('submit',function(form){
+                        $.post("/apidocs/"+data.id,vm.$data,function(response){
+                            layer.msg('修改成功');
+                            window.location.href = "/apidocs";
+                        });
+                        return false;
+                    });
+                    layui.code();
+
                 });
-                return false;
+
             });
-            layui.code();
-        });
 
     </script>
 
