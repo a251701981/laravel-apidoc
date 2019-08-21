@@ -44,7 +44,7 @@ class ApiDocs extends Controller
     {
 
         DB::transaction(function ()use($request) {
-            $docs = $request->input();
+            $docs = $request->post();
             $params = $docs['params'];
             unset($docs['params']);
             $apidoc = ApiDoc::create($docs);

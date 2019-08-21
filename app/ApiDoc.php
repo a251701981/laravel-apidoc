@@ -14,41 +14,19 @@ class ApiDoc extends Model
 	protected $connection = 'sqlite';
 
 
-
-
-
-
-
-        public function setRequestAttribute($value)
+    public function setRequestAttribute($value)
     {
-        if(!empty($value) && !empty(json_decode($value)))
-        {
-            $print = new Printer();
-            $value = $print->print($value,'  ');
-        }
+
         $this->attributes['request'] = (string)$value;
     }
 
 
     public function setResponseAttribute($value)
     {
-        if(!empty($value) && !empty(json_decode($value)))
-        {
-            $print = new Printer();
-            $value = $print->print($value,'  ');
-        }
+
         $this->attributes['response'] = (string)$value;
     }
 
-    public function getRequestAttribute($value)
-    {
-        return str_replace(['\n','\r','\\'],'',$this->attributes['request']);
-    }
-
-    public function getResponseAttribute($value)
-    {
-        return str_replace(['\n','\r','\\',],'',$this->attributes['response']);
-    }
 
 
 
