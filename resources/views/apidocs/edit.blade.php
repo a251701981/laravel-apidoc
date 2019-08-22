@@ -168,13 +168,13 @@
 
 
 
-         //一般直接写在一个js文件中
+          //一般直接写在一个js文件中
             layui.use(['layer', 'form','code'], function(){
                 var layer = layui.layer,form = layui.form,$ = layui.jquery;
 
-
+                var index = layer.load();
                 $.get(window.location.href,function(data){
-
+                    layer.close(index);
                     data._method = 'put';
                     data._token = '{{csrf_token()}}';
                     var vm = new Vue({
@@ -193,7 +193,9 @@
                     });
 
                     form.on('submit',function(form){
+                        var index = layer.load();
                         $.post("/apidocs/"+data.id,vm.$data,function(response){
+                            layer.close(index);
                             layer.msg('修改成功');
                             window.location.href = "/apidocs";
                         });
