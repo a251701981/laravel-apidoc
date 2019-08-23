@@ -19,7 +19,7 @@ class ApiDocs extends Controller
     {
         $docs = ApiDoc::with('params')->when($request->has('keyword'),function($query)use($request){
             $keyword = $request->get('keyword');
-            return $query->where('name','like','%'.$keyword)->orwhere('name','like',$keyword.'%');
+            return $query->where('name','like','%'.$keyword.'%')->orwhere('name','like',$keyword.'%');
         })->simplePaginate(15);
         return view('apidocs/list',['docs'=>$docs]);
     }
