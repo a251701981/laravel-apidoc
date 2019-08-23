@@ -41,6 +41,7 @@
                     @foreach($docs as $doc)
                         <li class="layui-text toc-item" ><a href="#anchor_{{$loop->index}}"  >{{$doc->name}}</a></li>
                     @endforeach
+					<li class="layui-text toc-item" >{{$docs->links('vendor/pagination/default')}}</li>
                 </ul>
             </div>
             <div class="layui-col-md10 right" >
@@ -89,7 +90,6 @@
                                             <h3>响应示例</h3>
                                             <pre class="layui-code" lay-skin="eclipose" encode="true" >{{str_replace(['\n','\"'],["\n",'"'],$doc->response)}}</pre>
                                         @endforeach
-                                        {{$docs->links('vendor/pagination/default')}}
                                     </div>
                                 </div>
                             </div>
